@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', function () {
+    echo 'REST API for Mind Box App';
 });
+
+$files = glob(__DIR__.'/api/*.php');
+
+foreach ($files as $file) {
+    require_once $file;
+}
