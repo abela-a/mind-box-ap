@@ -39,14 +39,6 @@
         }
     },
     "scripts": {
-        "larastan": [
-            "./vendor/bin/phpstan analyse"
-        ],
-        "ide-helper": [
-            "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:meta",
-            "@php artisan ide-helper:models -N"
-        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -61,6 +53,16 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "lint": "./vendor/bin/pint",
+        "test": [
+            "./vendor/bin/phpstan analyse",
+            "./vendor/bin/phpunit --colors=always -v --testdox"
+        ],
+        "ide-helper": [
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta",
+            "@php artisan ide-helper:models -N"
         ]
     },
     "extra": {
